@@ -1,7 +1,12 @@
 #include <allegro5\allegro.h>
+#include <allegro5\allegro_font.h>
+#include <allegro5\allegro_ttf.h>
+#include <allegro5\allegro_primitives.h>	
+#include <allegro5\allegro_native_dialog.h>
 #include <allegro5\allegro_primitives.h>
 #include "arrow.h";
 #include "bullet.h"
+#include <iostream>
 
 bool finished = false;
 bool timeOut = false;
@@ -26,17 +31,14 @@ int main(void)
 	ALLEGRO_DISPLAY *display = NULL;
 	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 	ALLEGRO_TIMER *timer = NULL;
-
-	time_t startTime, currentTime; //times used to measure elapsed time
-	startTime = time(NULL);
-	currentTime = time(NULL);
-	time_t times = currentTime - startTime;
-	while (times < 30 && !finished) {
-		currentTime = time(NULL);
-		times = currentTime - startTime;
+	ALLEGRO_FONT* font = al_load_font("AppleGaramond.ttf", 24, 0);
+	if (!font) {
+		// Handle error here (e.g., print a message or exit)
+		printf("Failed to load font!\n");
+		return -1;
 	}
-	timeOut = true;
-	return NULL;
+
+
 
 	//program init
 	if(!al_init())										//initialize Allegro
@@ -49,6 +51,8 @@ int main(void)
 
 	//addon init
 	al_install_keyboard();
+	al_init_font_addon();
+	al_init_ttf_addon();
 	al_init_primitives_addon();
 	arrow.create_arrow_bitmap(display);
 
@@ -64,7 +68,19 @@ int main(void)
 	al_start_timer(timer);
 	while(!done)
 	{
+		time_t startTime, currentTime; //times used to measure elapsed time
+		startTime = time(NULL);
+		currentTime = time(NULL);
+		time_t times = currentTime - startTime;
+		while (times < 30 && !finished) {
+			currentTime = time(NULL);
+			al_draw_text(font, al_map_rgb(255, 255, 255), 1, 400, ALLEGRO_ALIGN_LEFT, "Time: ");
+			times = currentTime - startTime;
+		}
+		timeOut = true;
+		return NULL;
 		ALLEGRO_EVENT ev;
+		
 		al_wait_for_event(event_queue, &ev);
 
 		if(ev.type == ALLEGRO_EVENT_TIMER)
@@ -121,7 +137,8 @@ int main(void)
 	}
 	al_destroy_event_queue(event_queue);
 	al_destroy_timer(timer);
-	al_destroy_display(display);						//destroy our display object
+	al_destroy_display(display);	//destroy our display object
+	al_destroy_font(font);
 	system("pause");
 	return 0;
 }

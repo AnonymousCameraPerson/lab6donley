@@ -36,4 +36,9 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\..\..\Downloads\AppleGaramond.ttf">
+      <Filter>Source Files</Filter>
+    </Font>
+  </ItemGroup>
 </Project>
