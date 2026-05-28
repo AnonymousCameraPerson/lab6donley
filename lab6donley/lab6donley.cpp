@@ -2,9 +2,34 @@
 #include <allegro5\allegro_primitives.h>
 #include "arrow.h";
 #include "bullet.h"
+#include <cstdlib>
+#include <iostream>
+
+
+
+using namespace std;
+
+bool timeOut = false;
+
+
+void* timer(ALLEGRO_THREAD* ptr, void* arg);
 
 int main(void)
 {
+	ALLEGRO_THREAD* create2 = NULL;
+	create2 = al_create_thread(timer, NULL);
+
+	while (!timeOut) {
+		if (!timeOut) {
+			al_start_thread(create2);
+		}
+		else {
+			al_destroy_thread(create2);
+		}
+	}
+
+
+
 	arrowClass arrow;
 	bullet mybullet[10];
 	int score = 0;
@@ -107,4 +132,18 @@ int main(void)
 	al_destroy_display(display);						//destroy our display object
 	system("pause");
 	return 0;
+}
+
+
+void* timer(ALLEGRO_THREAD* ptr, void* arg)
+{
+	time_t startTime, currentTime; //times used to measure elapsed time
+	startTime = time(NULL);
+	currentTime = time(NULL);
+	while (currentTime - startTime < 10)
+	{
+		currentTime = time(NULL);
+	}
+	timeOut = true;
+	return NULL;
 }
