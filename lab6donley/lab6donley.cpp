@@ -26,12 +26,16 @@ int main(void)
 	int width = 640;
 	int height = 480;
 	bool done = false;
+	
+	al_init_font_addon();
+	al_init_ttf_addon();
+	al_init_primitives_addon();
 
 	//allegro variable
 	ALLEGRO_DISPLAY *display = NULL;
 	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 	ALLEGRO_TIMER *timer = NULL;
-	ALLEGRO_FONT* font = al_load_font("AppleGaramond.ttf", 24, 0);
+	ALLEGRO_FONT* font = al_load_ttf_font("AppleGaramond.ttf", 24, 0);
 	if (!font) {
 		// Handle error here (e.g., print a message or exit)
 		printf("Failed to load font!\n");
