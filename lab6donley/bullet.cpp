@@ -1,10 +1,11 @@
+//Lucia Donley
 #include "bullet.h"
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
 
 bullet::bullet()
 {
-	//bullet_bmp= al_create_bitmap(8, 8);
+
 	alive = false;
 	srand(time(0));
 }
@@ -24,6 +25,7 @@ void bullet::erase_bullet()
 {
 	al_draw_filled_rectangle(x, y, x + 5, y + 5, al_map_rgb(0, 0, 0)); //black color
 }
+//create bitmap for bullet
 void bullet::create_bullet_bitmap(ALLEGRO_DISPLAY* display) {
 	
 	bullet_bmp = al_create_bitmap(16, 16);
@@ -34,7 +36,8 @@ void bullet::create_bullet_bitmap(ALLEGRO_DISPLAY* display) {
 	}
 	al_set_target_bitmap(bullet_bmp);
 	al_clear_to_color(al_map_rgb(0, 0, 0));
-	al_draw_filled_rectangle(0, 0, 10, 10, al_map_rgb(255, 255, 0));//yellow color
+	//bullet bitmap
+	al_draw_filled_rectangle(3, 3, 10, 10, al_map_rgb(255, 255, 0));//yellow color
 	al_draw_filled_circle(2, 2, 3, al_map_rgb(255, 255, 255));
 	al_draw_filled_circle(6, 6, 3, al_map_rgb(0, 0, 255));
 	
@@ -43,10 +46,11 @@ int bullet::move_bullet(int arrowX, int arrowY, int width, int length, int heigh
 {
 	
 	y++;
+	//call function to draw bullet bitmap
 	al_draw_bitmap(bullet_bmp, x, y, 0);
 
 
-	if (x > arrowX && x < arrowX + width && y > arrowY && y < arrowY + length) {
+	if (x > arrowX-width && x < arrowX + 32 && y > arrowY && y < arrowY + 32) {
 		al_draw_filled_rectangle(x, y, x + 5, y + 5, al_map_rgb(0, 0, 0)); //BLACK
 		
 		alive = false;

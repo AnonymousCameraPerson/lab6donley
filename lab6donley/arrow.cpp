@@ -1,3 +1,4 @@
+//Lucia Donley
 #include "arrow.h"
 arrowClass::arrowClass()
 {
@@ -37,7 +38,7 @@ void arrowClass::create_arrow_bitmap(ALLEGRO_DISPLAY* display){
 
 		int x = 15;
 		int y = 15;
-		//base image for bitmap
+		//my base image for bitmap
 		al_draw_circle(x - 1, y - 1, 15, al_map_rgb(0, 255, 255), 2);
 		al_draw_filled_circle(x - 2, y - 2, 10, al_map_rgb(255, 255, 255));
 		al_draw_filled_circle(x, y, 10, al_map_rgb(60, 105, 215));

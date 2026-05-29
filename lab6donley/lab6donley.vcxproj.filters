@@ -18,10 +18,10 @@
     <ClCompile Include="lab6donley.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="arrow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source1.cpp">
+    <ClCompile Include="bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
