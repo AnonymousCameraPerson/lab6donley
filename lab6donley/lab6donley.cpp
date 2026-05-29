@@ -95,7 +95,7 @@ int main(void)
 			int64_t curTime = sometime / 117;
 			al_clear_to_color(al_map_rgb(0, 0, 0));
 			al_draw_textf(font, al_map_rgb(255, 255, 255), 3, 10, 0, "Timer: %lld", 30-curTime);
-			al_draw_textf(font, al_map_rgb(255, 255, 255), 500, 10, 0, "Score: %i", score);
+			al_draw_textf(font, al_map_rgb(255, 255, 255), 485, 10, 0, "Score: %i", score);
 			al_flip_display();
 			
 			if (curTime ==30) {
@@ -147,7 +147,7 @@ int main(void)
 			for (int i = 0;i < 10;i++)
 			{
 				mybullet[i].erase_bullet();
-				score += mybullet[i].move_bullet(arrow.getX(), arrow.getY(), 32, 32, height);
+				score += mybullet[i].move_bullet(arrow.getX(), arrow.getY(), 16, 16, height);
 			}
 		}
 		al_flip_display();

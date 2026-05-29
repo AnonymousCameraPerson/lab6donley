@@ -26,7 +26,7 @@ void bullet::erase_bullet()
 }
 void bullet::create_bullet_bitmap(ALLEGRO_DISPLAY* display) {
 	
-	bullet_bmp = al_create_bitmap(8, 8);
+	bullet_bmp = al_create_bitmap(16, 16);
 	if (!bullet_bmp) {
 		exit(1);
 		al_destroy_display(display);
@@ -34,20 +34,21 @@ void bullet::create_bullet_bitmap(ALLEGRO_DISPLAY* display) {
 	}
 	al_set_target_bitmap(bullet_bmp);
 	al_clear_to_color(al_map_rgb(0, 0, 0));
-	al_draw_filled_rectangle(x, y, x + 5, y + 5, al_map_rgb(255, 255, 0));//yellow color
-	al_draw_filled_circle(x + 2, y + 2, 3, al_map_rgb(255, 255, 0));
+	al_draw_filled_rectangle(0, 0, 10, 10, al_map_rgb(255, 255, 0));//yellow color
+	al_draw_filled_circle(2, 2, 3, al_map_rgb(255, 255, 255));
+	al_draw_filled_circle(6, 6, 3, al_map_rgb(0, 0, 255));
+	
 }
 int bullet::move_bullet(int arrowX, int arrowY, int width, int length, int height)
 {
 	
-	
-
 	y++;
 	al_draw_bitmap(bullet_bmp, x, y, 0);
 
 
 	if (x > arrowX && x < arrowX + width && y > arrowY && y < arrowY + length) {
 		al_draw_filled_rectangle(x, y, x + 5, y + 5, al_map_rgb(0, 0, 0)); //BLACK
+		
 		alive = false;
 		return 1;
 	}
