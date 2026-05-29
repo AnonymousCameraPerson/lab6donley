@@ -1,4 +1,6 @@
 #include "bullet.h"
+#include "arrow.h"
+
 bullet::bullet()
 {
 	alive = false;;
@@ -23,6 +25,7 @@ void bullet::erase_bullet()
 int bullet::move_bullet(int arrowX, int arrowY, int width, int length, int height)
 {
 	y++;
+	//al_draw_bitmap(arrow_bmp[0], arrowX, arrowY, 0);
 	al_draw_filled_rectangle(x, y, x + 5, y + 5, al_map_rgb(255, 255, 0));//yellow color
 
 
