@@ -1,4 +1,3 @@
-#pragma once
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
 
@@ -9,9 +8,12 @@ public:
 	bullet();
 	void fire();
 	int move_bullet(int arrowX, int arrowY, int width, int length, int height);
+	void create_bullet_bitmap(ALLEGRO_DISPLAY* display);
 	void erase_bullet();
 	bool getStatus();
 private:
 	int x, y;
 	bool alive;
+	ALLEGRO_BITMAP* bullet_bmp;
 };
+

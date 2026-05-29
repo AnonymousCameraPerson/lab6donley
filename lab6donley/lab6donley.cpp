@@ -10,6 +10,7 @@ int main(void)
 {
 	arrowClass arrow;
 	bullet mybullet[10];
+	//bullet onebullet;
 	int score = 0;
 	bool redraw = true;
 	const int FPS = 60;
@@ -63,7 +64,13 @@ int main(void)
 		al_destroy_display(display);
 		return -1;
 	}
+
 	arrow.create_arrow_bitmap(display);
+	for (int i = 0;i < 10;i++) {
+		mybullet[i].create_bullet_bitmap(display);
+	}
+	//onebullet.create_bullet_bitmap(display);
+
 
 
 	al_set_target_bitmap(al_get_backbuffer(display));

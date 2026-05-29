@@ -22,8 +22,7 @@ void arrowClass::drawArrow()
 {
 	al_draw_bitmap(arrow_bmp[getDirection()], getX(), getY(), 0);
 }
-void arrowClass::create_arrow_bitmap(ALLEGRO_DISPLAY* display)
-{
+void arrowClass::create_arrow_bitmap(ALLEGRO_DISPLAY* display){
 	for (int i = 0;i < 4; i++)
 	{
 		arrow_bmp[i] = al_create_bitmap(32, 32);
