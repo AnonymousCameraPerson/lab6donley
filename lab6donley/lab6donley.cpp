@@ -88,7 +88,7 @@ int main(void)
 			int64_t curTime = sometime / 117;
 			al_clear_to_color(al_map_rgb(0, 0, 0));
 			al_draw_textf(font, al_map_rgb(255, 255, 255), 3, 10, 0, "Timer: %lld", 30-curTime);
-
+			al_draw_textf(font, al_map_rgb(255, 255, 255), 500, 10, 0, "Score: %i", score);
 			al_flip_display();
 			
 			if (curTime ==30) {
