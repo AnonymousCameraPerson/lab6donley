@@ -1,5 +1,6 @@
 //Lucia Donley
 #include "arrow.h"
+
 arrowClass::arrowClass()
 {
 	speed = 0;

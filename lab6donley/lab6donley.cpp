@@ -1,4 +1,4 @@
-//Lucia Donley
+
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
 #include <allegro5/allegro_font.h>
@@ -6,7 +6,7 @@
 #include "arrow.h";
 #include "bullet.h"
 #include <stdio.h>
-
+//Lucia Donley
 int main(void)
 {
 	arrowClass arrow;

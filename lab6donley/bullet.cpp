@@ -1,4 +1,4 @@
-//Lucia Donley
+
 #include "bullet.h"
 #include <allegro5\allegro.h>
 #include <allegro5\allegro_primitives.h>
@@ -9,6 +9,7 @@ bullet::bullet()
 	alive = false;
 	srand(time(0));
 }
+
 bool bullet::getStatus()
 {
 	return alive;
